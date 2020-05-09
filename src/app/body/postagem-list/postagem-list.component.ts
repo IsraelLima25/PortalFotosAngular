@@ -17,17 +17,8 @@ export class PostagemListComponent implements OnInit {
 
   ngOnInit() {
       //this.postagemService.listFromPostagem()      
-      //.then(response=>this.postagens = response)
-    var foo:Postagem[] = ([{id:1,
-        fotoDiretorio:"a",
-        titulo:"bio",
-        biografia:"a",
-        usuario: {nome:"Israel", senha:"1234"}
-    ]
-        }]
+      //.then(response=>this.postagens = response)    
 
-        
-) 
 
    
 
