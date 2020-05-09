@@ -3,6 +3,7 @@ import { SigninComponent } from "./signin/signin.component";
 import { SignupComponent } from "./signup/signup.component";
 import { CommonModule } from "@angular/common";
 import { HomeComponent } from "./home.component";
+import { ReactiveFormsModule } from "@angular/forms"; 
 
 @NgModule({
     declarations:[
@@ -11,7 +12,9 @@ import { HomeComponent } from "./home.component";
         SignupComponent
     ],
     imports:[
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
+        
     ],
     providers:[]
 })
