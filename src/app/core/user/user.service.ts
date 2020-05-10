@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core'
 import { TokenService } from '../token/token.service';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UserPayLoad } from 'src/modelo/UserPayLoad';
 import * as jwt_decode from 'jwt-decode';
 
 @Injectable({providedIn: 'root'})
 export class UserService{
 
-    private userSubject = new Subject<UserPayLoad>();
+    private userSubject = new BehaviorSubject<UserPayLoad>(null);
 
 
     constructor(private tokenService: TokenService) { 
