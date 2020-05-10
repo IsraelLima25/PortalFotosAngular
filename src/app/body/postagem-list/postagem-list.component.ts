@@ -10,20 +10,13 @@ import {Postagem} from '../../../modelo/Postagem';
 })
 export class PostagemListComponent implements OnInit {
 
-  //postagens: Postagem[]
+  postagens: Postagem[]
   list:any[]
 
   constructor(private postagemService:PostagemService) { }
 
   ngOnInit() {
-      //this.postagemService.listFromPostagem()      
-      //.then(response=>this.postagens = response)    
-
-
-   
-
+      this.postagemService.listFromPostagem()      
+      .then(response=>this.postagens = response)
   }
-
-
-
 }

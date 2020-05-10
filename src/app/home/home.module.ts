@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { HomeComponent } from "./home.component";
 import { ReactiveFormsModule } from "@angular/forms"; 
 import { VMessagesModule } from "src/shared/components/vmessage/vmessages/vmessages.module";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations:[
@@ -15,7 +16,8 @@ import { VMessagesModule } from "src/shared/components/vmessage/vmessages/vmessa
     imports:[
         CommonModule,
         ReactiveFormsModule,
-        VMessagesModule
+        VMessagesModule,
+        RouterModule
         
     ],
     providers:[]

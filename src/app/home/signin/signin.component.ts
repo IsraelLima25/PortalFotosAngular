@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,8 +11,11 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 export class SigninComponent implements OnInit {
   
   loginForm: FormGroup;
+  @ViewChild('userNameInput') userNameInput: ElementRef<HTMLInputElement>
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, 
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -27,11 +31,14 @@ export class SigninComponent implements OnInit {
     this.authService
     .authenticate(userName,password)
     .subscribe(
-      () => console.log('Logado'),
+      () => 
+      //this.router.navigate([['usuario'], userName,['postagens']])
+      console.log('Autenticado'),          
       err => {
         console.log(err)
         this.loginForm.reset()
         alert('UserName and Password invalid.');
+        this.userNameInput.nativeElement.focus();
       }
     )
   }
