@@ -3,7 +3,7 @@ import { SigninComponent } from "./signin/signin.component";
 import { SignupComponent } from "./signup/signup.component";
 import { CommonModule } from "@angular/common";
 import { HomeComponent } from "./home.component";
-import { ReactiveFormsModule } from "@angular/forms"; 
+import { ReactiveFormsModule, FormsModule } from "@angular/forms"; 
 import { VMessagesModule } from "src/shared/components/vmessage/vmessages/vmessages.module";
 import { RouterModule } from "@angular/router";
 
@@ -17,7 +17,7 @@ import { RouterModule } from "@angular/router";
         CommonModule,
         ReactiveFormsModule,
         VMessagesModule,
-        RouterModule
+        RouterModule 
         
     ],
     providers:[]

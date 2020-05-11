@@ -1,3 +1,69 @@
-<p>
-  Registre-se
-</p>
+<form [formGroup]="signupForm" class="form mt-4">
+  <div class="form-group">
+      <input formControlName="email" class="form-control" placeholder="email" autofocus>
+      <portal-vmessages
+          *ngIf="signupForm.get('email').errors?.required"
+          text="Email is required!">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('email').errors?.email"
+          text="Invalid e-mail">
+      </portal-vmessages>
+  </div>
+
+  <div class="form-group">
+      <input formControlName="fullName" class="form-control" placeholder="full name">
+      <portal-vmessages
+          *ngIf="signupForm.get('fullName').errors?.required"
+          text="Full name is required!">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('fullName').errors?.minlength"
+          text="Minimum length is 2">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('fullName').errors?.maxlength"
+          text="Maximum length is 40">
+      </portal-vmessages>
+  </div>
+
+  <div class="form-group">
+      <input formControlName="userName" class="form-control" placeholder="user name">
+      <portal-vmessages
+          *ngIf="signupForm.get('userName').errors?.required"
+          text="Username is required!">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('userName').errors?.minlength"
+          text="Minimum length is 2">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('userName').errors?.maxlength"
+          text="Maximum length is 30">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('userName').errors?.pattern"
+          text="Must be lowercase">
+      </portal-vmessages>
+  </div>
+
+  <div class="form-group">
+      <input formControlName="password" type="password" class="form-control" placeholder="password">
+      <portal-vmessages
+          *ngIf="signupForm.get('password').errors?.required"
+          text="Password is required!">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('password').errors?.minlength"
+          text="Minimum length is 8">
+      </portal-vmessages>
+      <portal-vmessages
+          *ngIf="signupForm.get('password').errors?.maxlength"
+          text="Maximum length is 14">
+      </portal-vmessages>
+  </div>
+
+  <button class="btn btn-primary btn-block">Register</button>
+
+  <p>Already a user? <a [routerLink]="['']">Sign In!</a></p>
+</form>
