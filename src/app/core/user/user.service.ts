@@ -8,6 +8,7 @@ import * as jwt_decode from 'jwt-decode';
 export class UserService{
 
     private userSubject = new BehaviorSubject<UserPayLoad>(null);
+    private userName: string;
 
 
     constructor(private tokenService: TokenService) { 
@@ -27,11 +28,20 @@ export class UserService{
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
         const userPayLoad = jwt_decode(token) as UserPayLoad; //<- (aqui a chamada jwt_decode)
+        this.userName = userPayLoad.nome;
         this.userSubject.next(userPayLoad);
     }
 
     logout(){
         this.tokenService.removeToken();
         this.userSubject.next(null);
+    }
+
+    isLogged() {
+        return this.tokenService.hasToken();
+    }
+
+    getUserName() {
+        return this.userName;
     }
 }
