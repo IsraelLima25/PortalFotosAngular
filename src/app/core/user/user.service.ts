@@ -21,7 +21,7 @@ export class UserService{
     }
 
     getUser() {
-        this.userSubject.asObservable();
+        return this.userSubject.asObservable();
     }
 
     private decodeAndNotify() {
