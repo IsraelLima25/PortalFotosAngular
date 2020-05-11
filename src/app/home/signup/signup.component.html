@@ -29,6 +29,11 @@
 
   <div class="form-group">
       <input formControlName="userName" class="form-control" placeholder="user name">
+      <small *ngIf="signupForm.get('userName').valid" class="text-success">User available</small>
+      <portal-vmessages
+          text="Username already taken"
+          *ngIf="signupForm.get('userName').errors?.userNameTaken">
+      </portal-vmessages>
       <portal-vmessages
           *ngIf="signupForm.get('userName').errors?.required"
           text="Username is required!">
@@ -63,7 +68,7 @@
       </portal-vmessages>
   </div>
 
-  <button class="btn btn-primary btn-block">Register</button>
+  <button [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary btn-block">Register</button>
 
   <p>Already a user? <a [routerLink]="['']">Sign In!</a></p>
 </form>
