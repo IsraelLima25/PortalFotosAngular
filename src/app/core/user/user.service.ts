@@ -29,4 +29,9 @@ export class UserService{
         const userPayLoad = jwt_decode(token) as UserPayLoad; //<- (aqui a chamada jwt_decode)
         this.userSubject.next(userPayLoad);
     }
+
+    logout(){
+        this.tokenService.removeToken();
+        this.userSubject.next(null);
+    }
 }
