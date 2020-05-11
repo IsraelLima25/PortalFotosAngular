@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { lowerCaseValidator } from 'src/shared/validators/lower-case.validator';
 import { UserNotTakenValidatorService } from './user-not-taken.validator';
+import { Usuario } from 'src/modelo/Usuario';
 
 @Component({ 
   templateUrl: './signup.component.html',
@@ -48,6 +49,15 @@ export class SignupComponent implements OnInit {
         ]
       ]
     })
+  }
+
+  signup(){
+    //Captura todos os campos do formulario e devolve um obj js e já converte para o tipo definido.
+    // A conversão é feita havendo paridade entre as propriedades do obj e os campos do formulario.
+    const newUser = this.signupForm.getRawValue() as Usuario;
+
+    //Desenvolver serviçe para gravar um usuario via api e em seguida redirecionar para a página de login
+
   }
 
 }
