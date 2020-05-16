@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'portal-header',
-    templateUrl: './header.component.html'
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent { 
 
@@ -20,6 +21,7 @@ export class HeaderComponent {
     }
 
     logout() {
+        console.log('deslogando');
         this.userService.logout();
         this.router.navigate(['']);
     }

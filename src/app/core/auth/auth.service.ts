@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { UserService } from '../user/user.service';
 
-
 const API_URL = 'http://localhost:8080/login';
 
 @Injectable({
@@ -13,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
-  authenticate(userName: string, password: string){        
+  authenticate(userName: string, password: string){    
       return this.http.post(API_URL,{ 
         nome:userName,
         senha: password        
@@ -25,7 +24,6 @@ export class AuthService {
       .pipe(tap(res => {
         const token = res.headers.get('Authorization');
         this.userService.setToken(token);
-        console.log(`The user ${userName} authenticated with token ${token}`)
       }))
   }
 }

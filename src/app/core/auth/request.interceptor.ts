@@ -13,9 +13,11 @@ export class RequestInterceptor implements HttpInterceptor {
 
             if(this.tokenService.hasToken()) {
                 const token = this.tokenService.getToken();
+                console.log("Requisição interceptada: TOKEN: " + token);
                 req = req.clone({
                     setHeaders : {
-                        'authorization': token
+                        'Authorization': token
+                      
                     }
                 });
             }

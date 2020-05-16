@@ -27,8 +27,8 @@ export class UserService{
 
     private decodeAndNotify() {
         const token = this.tokenService.getToken();
-        const userPayLoad = jwt_decode(token) as UserPayLoad; //<- (aqui a chamada jwt_decode)
-        this.userName = userPayLoad.nome;
+        const userPayLoad = jwt_decode(token) as UserPayLoad; //<- (aqui a chamada jwt_decode)        
+        this.userName = userPayLoad.sub;        
         this.userSubject.next(userPayLoad);
     }
 

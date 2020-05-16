@@ -1,4 +1,3 @@
-export class UserPayLoad{
-    id: number;
-    nome: string;    
+export interface UserPayLoad{    
+    sub: string;        
 }

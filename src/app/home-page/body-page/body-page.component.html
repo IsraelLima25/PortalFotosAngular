@@ -1,0 +1,23 @@
+<div *ngIf="postagens!==null; else alternate">  
+
+  <div *ngFor="let postagem of postagens">
+      <p class="lead">              
+        <a href="#">{{userLogged}}</a>
+      </p>
+      <hr>
+      <p>Posted on January 1, 2018 at 12:00 PM</p>
+      <hr>
+      <img class="card-img-top" [src]="postagem.fotoDiretorio" alt="Card image cap">
+      <a href="#">Like</a>
+      <hr>
+      <h5>{{postagem.titulo}}</h5>
+      <p class="lead">{{postagem.biografia}}</p>  
+    </div>   
+  </div>
+
+<ng-template #alternate>
+    <p class="textcenter">Sem publicações.</p>
+</ng-template>
+
+
+    
